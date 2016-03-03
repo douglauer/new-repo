@@ -16,6 +16,7 @@ end
 
 if !File.exists?(Dir.home + '/.gitclirc')
   puts "~/.gitclirc not found"
+  puts "Run `echo 'user:pass' > ~/.gitclirc`"
   exit
 end
 
@@ -36,7 +37,7 @@ end
 system 'git init'
 
 system """
-  git remote add origin https://github.com/douglauer/#{packet[:name]}.git
+  git remote add origin https://github.com/#{user}/#{packet[:name]}.git
 """
 
 system """
